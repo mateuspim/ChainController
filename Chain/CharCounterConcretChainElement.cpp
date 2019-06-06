@@ -26,5 +26,6 @@ string CharCounterConcretChainElement::getName()
 void CharCounterConcretChainElement::internalProcessing(std::shared_ptr<MyDataObject> value)
 {
 	buffer = value->getValue();
+	cout << "SHARED PTR USE COUNT: " << value.use_count() << endl;
 }
 

@@ -14,6 +14,7 @@ using namespace std;
 AbstractChainElement::AbstractChainElement()
 {
 	nextElement = NULL;
+	//std::cout << "\tAbstractChainElement\t" << std::endl;
 }
 
 AbstractChainElement::~AbstractChainElement()

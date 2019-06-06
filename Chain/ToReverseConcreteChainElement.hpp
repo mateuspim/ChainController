@@ -16,5 +16,5 @@ public:
 	string getName() override;
 };
 
-#endif 
+#endif /* TOREVERSECONCRETECHAINELEMENT_HPP */
 
