@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 #ifndef INFO_HPP
-#define INFO_HPP
+	#define INFO_HPP
 
 #include <string>
 
@@ -16,6 +10,7 @@ private:
     static const string institution;
     static const string dept;
     static const string author;
+	static const string editor;
     static const string date;
     static const string sysName;
     static const string sysVersion;
@@ -25,6 +20,7 @@ public:
     static const string getInstitution();
     static const string getDept();
     static const string getAuthor();
+	static const string getEditor();
     static const string getDate();
     static const string getSysName();
     static const string getSysVersion();

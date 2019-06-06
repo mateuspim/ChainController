@@ -15,22 +15,22 @@
 
 using namespace std;
 
-class ChainController {
+class ChainController 
+{
 private:
 	
-    vector<std::shared_ptr<AbstractChainElement>> chainUnits;
+	vector<std::shared_ptr<AbstractChainElement>> chainUnits;
 	std::shared_ptr<MyDataObject> myData;
-   // MyDataObject * myData;
+   
 public:
     ChainController();
+	~ChainController();
 
-    void start();
+	void start();
     void loadData();
-
+	void startChain();
     void processChain();
-
     void prepareChain();
-
     void createElements();
 
 };

@@ -10,43 +10,45 @@
 #include "XorCriptoConcreteChainElement.hpp"
 
 XorCriptoConcreteChainElement::XorCriptoConcreteChainElement()
-   {
-   this->setNext(NULL);
-   }
+{
+	cout << "Added module: " << this->getName() << " to the chain";
+	this->setNext(NULL);
+}
 
 XorCriptoConcreteChainElement::~XorCriptoConcreteChainElement()
-   {
-   this->setNext(NULL);
-   }
+{
+	cout << "Deleted module: " << this->getName() << " from the chain" << endl;
+	this->setNext(NULL);
+}
 
 string XorCriptoConcreteChainElement::getName()
-   {
-   return (this->name);
-   }
+{
+	return (this->name);
+}
 
 void XorCriptoConcreteChainElement::internalProcessing(std::shared_ptr<MyDataObject> value)
-   {
-   int cycle = 0;
+{
+	int cycle = 0;
    
-   if (key.size() != 0)
-      {
-      string buffer = value->getValue();
+	if (key.size() != 0)
+	{
+		string buffer = value->getValue();
 
-      for (int count = 0; count < buffer.size(); count++)
-         {
-         buffer.at(count) = (char) (((int)buffer.at(count)) ^ key.at(cycle));
-         cycle = (cycle + 1)%key.size();
-         }
-      value->setValue(buffer);
-      }
-   }
+		for (int count = 0; count < buffer.size(); count++)
+		{
+			buffer.at(count) = (char) (((int)buffer.at(count)) ^ key.at(cycle));
+			cycle = (cycle + 1)%key.size();
+		}
+		value->setValue(buffer);
+	}
+}
 
 void XorCriptoConcreteChainElement::readParameters()
-   {
-   char buffer[1025];
+{
+	char buffer[1025];
    
-   cout << "\t\tWhat is the criptografic key? ";
-   cin.getline(buffer, 1024);
-   key = string(buffer);
-   cout << "\t\tKey ...: [" << key << "] accepted." << endl;
-   }
+	cout << "\t\tWhat is the criptografic key? ";
+	cin.getline(buffer, 1024);
+	key = string(buffer);
+	cout << "\t\tKey ...: [" << key << "] accepted." << endl;
+}

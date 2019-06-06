@@ -6,12 +6,13 @@
  */
 
 #ifndef MYDATAOBJECT_HPP
-#define MYDATAOBJECT_HPP
+	#define MYDATAOBJECT_HPP
 
 #include <string>
 using namespace std;
 
-class MyDataObject {
+class MyDataObject 
+{
 private:
     string myDataValue;
 public:

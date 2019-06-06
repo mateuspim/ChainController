@@ -8,26 +8,26 @@
 #include "MyDataObject.hpp"
 
 MyDataObject::MyDataObject(const string newValue)
-   {
-   this->myDataValue = newValue;
-   }
+{
+	this->myDataValue = newValue;
+}
 
 MyDataObject::MyDataObject(const MyDataObject& orig)
-   {
-   this->myDataValue = orig.myDataValue;
-   }
+{
+	this->myDataValue = orig.myDataValue;
+}
 
 MyDataObject::~MyDataObject()
-   {
-   this->myDataValue = "";
-   }
+{
+	this->myDataValue = "";
+}
 
 void MyDataObject::setValue(string newValue)
-   {
-   this->myDataValue = newValue;
-   }
+{
+	this->myDataValue = newValue;
+}
 
 string MyDataObject::getValue()
-   {
-   return(myDataValue);
-   }
+{
+	return(myDataValue);
+}

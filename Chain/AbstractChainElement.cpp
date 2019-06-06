@@ -12,54 +12,52 @@
 using namespace std;
 
 AbstractChainElement::AbstractChainElement()
-	{
+{
 	nextElement = NULL;
-	//std::cout << "\tAbstractChainElement\t" << std::endl;
-	}
+}
 
 AbstractChainElement::~AbstractChainElement()
-	{
+{
 	nextElement = NULL;
-	//std::cout << "\t~AbstractChainElement\t" << std::endl;
-	}
+}
 
 void AbstractChainElement::setNext(AbstractChainElement* next)
-   {
-   this->nextElement = next;
-   }
+{
+	this->nextElement = next;
+}
 
 AbstractChainElement* AbstractChainElement::getNext()
-   {
-   return(this->nextElement);
-   }
+{
+	return(this->nextElement);
+}
 
 void AbstractChainElement::doProcessing(std::shared_ptr<MyDataObject> value)
-   {
-   if(value != NULL)
-      {
-      cout << "\t" << this->getName() << ":" << endl;
+{
+	if(value != NULL)
+	{
+		cout << "\t" << this->getName() << ":" << endl;
       
-      this->readParameters();
+		this->readParameters();
       
-      cout << "\t\tFrom ..: " << value->getValue() << endl;
-      internalProcessing(value);
-      cout << "\t\tTo ....: " << value->getValue() << endl;
+		cout << "\t\tFrom ..: " << value->getValue() << endl;
+		internalProcessing(value);
+		cout << "\t\tTo ....: " << value->getValue() << endl;
 	  
-	  writeResults();
+		this->writeResults();
 
-      if(this->nextElement != NULL)
-         {
-         nextElement->doProcessing(value);
-         }
-      }
-   }
+		if(this->nextElement != NULL)
+		{
+			nextElement->doProcessing(value);
+		}
+	}
+}
 
 void AbstractChainElement::writeResults() const
-	{
+{
 	// do nothing. May be overrided only if it was necessary.
-	}
+}
 
 void AbstractChainElement::readParameters()
-   {
+{
    // do nothing. May be overrided only if it was necessary.
-   }
+}

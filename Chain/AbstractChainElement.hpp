@@ -14,7 +14,8 @@
 #include "MyDataObject.hpp"
 using namespace std;
 
-class AbstractChainElement {
+class AbstractChainElement 
+{
 private:
     AbstractChainElement * nextElement;
     virtual void internalProcessing(std::shared_ptr<MyDataObject>) = 0;

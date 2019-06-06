@@ -1,12 +1,15 @@
+#include <iostream>
 #include "ToInitialsUpperConcreteChainElement.hpp"
 
 ToInitialsUpperConcreteChainElement::ToInitialsUpperConcreteChainElement()
 {
+	cout << "Added module: " << this->getName() << " to the chain";
 	this->setNext(NULL);
 }
 
 ToInitialsUpperConcreteChainElement::~ToInitialsUpperConcreteChainElement()
 {
+	cout << "Deleted module: " << this->getName() << " from the chain" << endl;
 	this->setNext(NULL);
 }
 

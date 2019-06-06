@@ -18,14 +18,12 @@ using namespace std;
 using namespace std;
 
 int main(int argc, char** argv) {
+
 	try {
 		std::unique_ptr<ChainController> program; 
 		program = std::make_unique<ChainController>();
-		//ChainController* program = new ChainController();
 		Info::wellcome();
 		program->start();
-		//delete program;
-		//program = NULL;
 		Info::goodbye();
 	}
 	catch (exception& ex) {

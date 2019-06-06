@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /* 
  * File:   toUpperConcreteChainElement.cpp
  * Author: andre
@@ -12,30 +6,33 @@
  */
 
 #include <cctype>
+#include <iostream>
 #include "ToUpperConcreteChainElement.hpp"
 
 ToUpperConcreteChainElement::ToUpperConcreteChainElement()
-   {
-   this->setNext(NULL);
-   }
+{
+	cout << "Added module: " << this->getName() << " to the chain";
+	this->setNext(NULL);
+}
 
 ToUpperConcreteChainElement::~ToUpperConcreteChainElement()
-   {
-   this->setNext(NULL);
-   }
+{
+	cout << "Deleted module: " << this->getName() << " from the chain" << endl;
+	this->setNext(NULL);
+}
 
 string ToUpperConcreteChainElement::getName()
-   {
-   return (this->name);
-   }
+{
+	return (this->name);
+}
 
 void ToUpperConcreteChainElement::internalProcessing(std::shared_ptr<MyDataObject> value)
-   {
-   string buffer = value->getValue();
+{
+	string buffer = value->getValue();
    
-   for(int count = 0; count < buffer.size(); count++)
-      {
-      buffer.at(count) = toupper(buffer.at(count));
-      }
-   value->setValue(buffer);
-   }
+	for(int count = 0; count < buffer.size(); count++)
+	{
+		buffer.at(count) = toupper(buffer.at(count));
+	}
+	value->setValue(buffer);
+}

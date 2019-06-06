@@ -3,11 +3,13 @@
 
 CharCounterConcretChainElement::CharCounterConcretChainElement()
 {
+	cout << "Added module: " << this->getName() << " to the chain";
 	this->setNext(NULL);
 }
 
 CharCounterConcretChainElement::~CharCounterConcretChainElement()
 {
+	cout << "Deleted module: " << this->getName() << " from the chain" << endl;
 	this->setNext(NULL);
 }
 

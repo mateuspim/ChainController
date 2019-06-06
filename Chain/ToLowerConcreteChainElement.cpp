@@ -10,28 +10,29 @@
 #include "ToLowerConcreteChainElement.hpp"
 
 ToLowerConcreteChainElement::ToLowerConcreteChainElement()
-   {
-   this->setNext(NULL);
-   }
+{
+	cout << "Added module: " << this->getName() << " to the chain";
+	this->setNext(NULL);
+}
 
 ToLowerConcreteChainElement::~ToLowerConcreteChainElement()
-   {
-   this->setNext(NULL);
-   std::cout << "~ToLowerConcreteChainElement" << std::endl;
-   }
+{
+	this->setNext(NULL);
+	cout << "Deleted module: " << this->getName() << " from the chain" << endl;
+}
 
 string ToLowerConcreteChainElement::getName()
-   {
-   return (this->name);
-   }
+{
+	return (this->name);
+}
 
 void ToLowerConcreteChainElement::internalProcessing(std::shared_ptr<MyDataObject> value)
-   {
-   string buffer = value->getValue();
+{
+	string buffer = value->getValue();
    
-   for(int count = 0; count < buffer.size(); count++)
-      {
-      buffer.at(count) = tolower(buffer.at(count));
-      }
-   value->setValue(buffer);
-   }
+	for(int count = 0; count < buffer.size(); count++)
+	{
+		buffer.at(count) = tolower(buffer.at(count));
+	}
+	value->setValue(buffer);
+}
