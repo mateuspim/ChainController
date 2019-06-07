@@ -7,7 +7,7 @@
 class ToReverseConcreteChainElement : public AbstractChainElement
 {
 private:
-	const string name = "ToReverseConcreteChainElement";
+	const string name = "To Reverse Concrete ChainElement";
 	void internalProcessing(std::shared_ptr<MyDataObject> value) override;
 
 public:

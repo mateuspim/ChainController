@@ -28,6 +28,7 @@ string ToLowerConcreteChainElement::getName()
 
 void ToLowerConcreteChainElement::internalProcessing(std::shared_ptr<MyDataObject> value)
 {
+	// lowering every char from given string
 	string buffer = value->getValue();
    
 	for(int count = 0; count < buffer.size(); count++)

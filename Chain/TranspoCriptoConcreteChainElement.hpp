@@ -7,15 +7,12 @@
 class TranspoCriptoConcreteChainElement : public AbstractChainElement
 {
 private:
-	const string name = "TranspositionCriptoConcreteChainElement";
+	const string name = "Transposition Cripto Concrete ChainElement";
 	int shift = NULL;
 
 	void internalProcessing(std::shared_ptr<MyDataObject> value) override;
 	virtual void readParameters();
 	
-	void leftrotate(string& s, int d);
-	void rightrotate(string& s, int d);
-
 public:
 	TranspoCriptoConcreteChainElement();
 	virtual ~TranspoCriptoConcreteChainElement();

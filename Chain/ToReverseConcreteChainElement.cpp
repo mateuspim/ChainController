@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "ToReverseConcreteChainElement.hpp"
 
 ToReverseConcreteChainElement::ToReverseConcreteChainElement()
@@ -20,6 +21,7 @@ string ToReverseConcreteChainElement::getName()
 
 void ToReverseConcreteChainElement::internalProcessing(std::shared_ptr<MyDataObject> value)
 {
+	// using the reverse method to do all the work 
 	string buffer = value->getValue();
 	reverse(buffer.begin(), buffer.end());
 	value->setValue(buffer);

@@ -8,10 +8,10 @@
 #ifndef CHAINCONTROLLER_HPP
 	#define CHAINCONTROLLER_HPP
 
-#include "AbstractChainElement.hpp"
-#include "MyDataObject.hpp"
 #include <vector>
 #include <memory>
+#include "AbstractChainElement.hpp"
+#include "MyDataObject.hpp"
 
 using namespace std;
 

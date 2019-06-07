@@ -28,6 +28,7 @@ string ToUpperConcreteChainElement::getName()
 
 void ToUpperConcreteChainElement::internalProcessing(std::shared_ptr<MyDataObject> value)
 {
+	// uppercase all the chars in given string
 	string buffer = value->getValue();
    
 	for(int count = 0; count < buffer.size(); count++)

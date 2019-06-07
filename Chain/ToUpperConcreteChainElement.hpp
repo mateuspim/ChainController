@@ -15,7 +15,7 @@ using namespace std;
 
 class ToUpperConcreteChainElement : public AbstractChainElement {
 private:
-    const string name = "ToUpperConcreteChainElement";
+    const string name = "To Upper Concrete ChainElement";
     void internalProcessing(std::shared_ptr<MyDataObject> value) override;
 
 public:

@@ -14,7 +14,6 @@ using namespace std;
 AbstractChainElement::AbstractChainElement()
 {
 	nextElement = NULL;
-	//std::cout << "\tAbstractChainElement\t" << std::endl;
 }
 
 AbstractChainElement::~AbstractChainElement()
@@ -37,15 +36,18 @@ void AbstractChainElement::doProcessing(std::shared_ptr<MyDataObject> value)
 	if(value != NULL)
 	{
 		cout << "\t" << this->getName() << ":" << endl;
-      
+		
+		// read Parameters from user if class overwrites it else do nothing
 		this->readParameters();
       
 		cout << "\t\tFrom ..: " << value->getValue() << endl;
 		internalProcessing(value);
 		cout << "\t\tTo ....: " << value->getValue() << endl;
-	  
+		
+		// print results to user if class overwrites it else do nothing
 		this->writeResults();
 
+		// process the next element of the chain if not null
 		if(this->nextElement != NULL)
 		{
 			nextElement->doProcessing(value);
@@ -53,7 +55,7 @@ void AbstractChainElement::doProcessing(std::shared_ptr<MyDataObject> value)
 	}
 }
 
-void AbstractChainElement::writeResults() const
+void AbstractChainElement::writeResults()
 {
 	// do nothing. May be overrided only if it was necessary.
 }

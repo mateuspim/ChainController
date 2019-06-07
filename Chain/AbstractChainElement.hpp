@@ -17,9 +17,9 @@ using namespace std;
 class AbstractChainElement {
 private:
     AbstractChainElement * nextElement;
-    virtual void internalProcessing(std::shared_ptr<MyDataObject>) = 0;
+    virtual void internalProcessing(std::shared_ptr<MyDataObject> value) = 0;
     virtual void readParameters();
-	virtual void writeResults() const;
+	virtual void writeResults();
     
 public:
     AbstractChainElement();
@@ -27,7 +27,7 @@ public:
     virtual void setNext(AbstractChainElement * next);
     virtual AbstractChainElement * getNext(void);
     
-    virtual void doProcessing(std::shared_ptr<MyDataObject>);
+    virtual void doProcessing(std::shared_ptr<MyDataObject> value);
     virtual string getName(void) = 0;
 };
 

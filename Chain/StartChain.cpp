@@ -20,11 +20,11 @@ using namespace std;
 int main(int argc, char** argv) {
 
 	try {
-		std::unique_ptr<ChainController> program; 
-		program = std::make_unique<ChainController>();
-		Info::wellcome();
+		auto program = std::make_unique<ChainController>();
+		auto info = std::make_unique<Info>();
+		info->wellcome();
 		program->start();
-		Info::goodbye();
+		info->goodbye();
 	}
 	catch (exception& ex) {
 		cerr << "Problem: " << ex.what() << endl;

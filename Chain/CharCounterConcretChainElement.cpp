@@ -15,6 +15,7 @@ CharCounterConcretChainElement::~CharCounterConcretChainElement()
 
 void CharCounterConcretChainElement::writeResults() const
 {
+	// printing the length of string from MyDataObject class
 	std::cout << "\t\tThe string: " << buffer << " has " << buffer.length() << " chars" << std::endl;
 }
 
@@ -26,6 +27,5 @@ string CharCounterConcretChainElement::getName()
 void CharCounterConcretChainElement::internalProcessing(std::shared_ptr<MyDataObject> value)
 {
 	buffer = value->getValue();
-	cout << "SHARED PTR USE COUNT: " << value.use_count() << endl;
 }
 

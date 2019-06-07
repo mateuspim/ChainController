@@ -21,35 +21,27 @@ string TranspoCriptoConcreteChainElement::getName()
 
 void TranspoCriptoConcreteChainElement::internalProcessing(std::shared_ptr<MyDataObject> value)
 {
+	/* adding to each char in given string the shift element 
+	* to get another char from ASCII table
+	*/
 	string buffer = value->getValue();
-	if (shift > 0)
-		rightrotate(buffer, abs(shift));
-	else
-		leftrotate(buffer, abs(shift));
+	for (int count = 0; count < buffer.size(); count++)
+	{
+		buffer.at(count) = buffer.at(count) + shift;
+	}
 	value->setValue(buffer);
-}
-
-void TranspoCriptoConcreteChainElement::leftrotate(string& s, int d)
-{
-	reverse(s.begin(), s.begin() + d);
-	reverse(s.begin() + d, s.end());
-	reverse(s.begin(), s.end());
-}
-
-// In-place rotates s towards right by d 
-void TranspoCriptoConcreteChainElement::rightrotate(string & s, int d)
-{
-	leftrotate(s,s.length() - d);
 }
 
 void TranspoCriptoConcreteChainElement::readParameters()
 {
+	/*	reading the parameters from user 
+	*	using a string as buffer to avoid '\n' in cin
+	*/
 	string buffer;
 	std::cout << "\t\tWhat is the numbers of chars to be shiffted: ";
 	getline(cin, buffer);
 	shift = stoi(buffer);
-	cout << "\t\tIt will be shifted ...: [" << abs(shift) << "] chars to the ";
-	if (shift > 0) cout << "Right"; else cout << "Left";
+	cout << "\t\tIt will be shifted ...: [" << abs(shift) << "] to each char  ";
 	cout << endl;
 }
 

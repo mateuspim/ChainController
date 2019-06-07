@@ -12,7 +12,7 @@
 #include "ToLowerConcreteChainElement.hpp"
 #include "ToUpperConcreteChainElement.hpp"
 #include "ToReverseConcreteChainElement.hpp"
-#include "ToInitialsUpperConcreteChainElement.hpp"
+#include "ToOnlyUpperInitialsConcreteChainElement.hpp"
 #include "XorCriptoConcreteChainElement.hpp"
 #include "TranspoCriptoConcreteChainElement.hpp"
 #include "CharCounterConcretChainElement.hpp"
@@ -43,7 +43,6 @@ void ChainController::start(void)
 void ChainController::loadData()
 {
 	myData = std::make_shared<MyDataObject>(Info::getInstitution());
-	//myData = new MyDataObject(Info::getInstitution());
 }
 
 void ChainController::startChain()
@@ -65,11 +64,17 @@ void ChainController::startChain()
 
 void ChainController::createElements()
 {
-	vector<string> options({ " Exit and Run"," Run Chain"," Alter String"," Lower String"," Upper String"
-							," Only Upper Initials"," Reverse String"," XOR Crypto"," Trans Crypto"
-							," Count Chars"," Reset"});
+	/*	creating the menu to navigate through the options
+	*	and allocating the given information in vector
+	*	to process it later
+	*/
+	vector<string> options({ " Exit and Run"," Run Chain"," Alter String"
+							," Lower String"," Upper String"," Only Upper Initials"
+							," Reverse String"," XOR Crypto"," Transposition Crypto"
+							," Count Chars","Reset The Chain"});
+	
 	int choice = -1;
-	std::unique_ptr<Menu> menu = std::make_unique<Menu>("Menu",options);
+	std::unique_ptr<Menu> menu = std::make_unique<Menu>("\tChain Reaction",options);
 	string buffer;
 
 	while (choice) {
@@ -79,19 +84,18 @@ void ChainController::createElements()
 		case 0: break;
 		case 1: startChain(); break;
 		case 2: cout << "String to be processed: " << myData->getValue() << "\n"
-					 << "Enter new string: "; 
-				getline(cin, buffer); myData->setValue(buffer); 
-				break;
+					 << "Enter new string: ";	getline(cin, buffer); 
+				myData->setValue(buffer); break;
 		case 3: chainUnits.push_back(std::make_shared< ToLowerConcreteChainElement >()); break;
 		case 4: chainUnits.push_back(std::make_shared< ToUpperConcreteChainElement >()); break;
-		case 5: chainUnits.push_back(std::make_shared< ToInitialsUpperConcreteChainElement >()); break;
+		case 5: chainUnits.push_back(std::make_shared< ToOnlyUpperInitialsConcreteChainElement >()); break;
 		case 6: chainUnits.push_back(std::make_shared< ToReverseConcreteChainElement >()); break;
 		case 7: chainUnits.push_back(std::make_shared< XorCriptoConcreteChainElement >()); break;
 		case 8: chainUnits.push_back(std::make_shared< TranspoCriptoConcreteChainElement >()); break;
 		case 9: chainUnits.push_back(std::make_shared< CharCounterConcretChainElement >()); break;
 		case 10: cout << "\nClearing the chain cache" << endl; chainUnits.clear(); 
-			cout << "Cache cleared" << endl; break;
-		default: cout << "Invalid command!" << endl;
+				 cout << "Cache cleared" << endl; break;
+		default: cout << "Invalid command!" << endl; //if called problem if other cases
 		}
 	}
 }
@@ -100,7 +104,7 @@ void ChainController::prepareChain()
 {
 	if (chainUnits.size() > 1)
 	{
-		// set the chain
+		// set the next elements of chain 
 		for (int count = 0; count < (chainUnits.size() - 1); count++)
 		{
 		(chainUnits.at(count))->setNext(chainUnits.at(count + 1).get());
@@ -110,7 +114,8 @@ void ChainController::prepareChain()
 
 void ChainController::processChain()
 {
-   cout << "Initial value ...: " << myData->getValue() << endl << endl;
-   (chainUnits.at(0))->doProcessing(myData);
-   cout << "\nFinal value .....: " << myData->getValue() << endl;
+	// start processing the first value of the chain 
+	cout << "Initial value ...: " << myData->getValue() << endl << endl;
+	(chainUnits.at(0))->doProcessing(myData);
+	cout << "\nFinal value .....: " << myData->getValue() << endl;
 }

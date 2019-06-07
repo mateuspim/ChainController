@@ -8,14 +8,14 @@
 #ifndef XORCRIPTOCONCRETECHAINELEMENT_HPP
 	#define XORCRIPTOCONCRETECHAINELEMENT_HPP
 
-#include "AbstractChainElement.hpp"
 #include <string>
+#include "AbstractChainElement.hpp"
 
 using namespace std;
 
 class XorCriptoConcreteChainElement : public AbstractChainElement {
 private:
-    const string name = "XorCriptoConcreteChainElement";
+    const string name = "XOR Cripto Concrete ChainElement";
     string       key = "";
     
     void internalProcessing(std::shared_ptr<MyDataObject>) override;
