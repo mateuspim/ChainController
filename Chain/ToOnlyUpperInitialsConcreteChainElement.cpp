@@ -23,8 +23,8 @@ void ToOnlyUpperInitialsConcreteChainElement::internalProcessing(std::shared_ptr
 {
 	string buffer = value->getValue();
 
-	/*	this method only uppers the initials to do it
-	*	one way to do it is to declare a bool isUpper 
+	/*	this method only uppers the initials 
+	*	one way to do it is to declare a bool "isUpper" 
 	*	set it to true - to upper the first char - 
 	*	and search for empty spaces in the given string
 	*	and set isUpper to true to upper the 
@@ -35,17 +35,16 @@ void ToOnlyUpperInitialsConcreteChainElement::internalProcessing(std::shared_ptr
 
 	for (int count = 0; count < buffer.size(); count++)
 	{
-		if (buffer.at(count) == ' ') {
-			isUpper = true;
-			continue;
-		}
-
 		if (isUpper) {
 			buffer.at(count) = toupper(buffer.at(count));
 			isUpper = false;
 		}
 		else {
 			buffer.at(count) = tolower(buffer.at(count));
+		}
+
+		if (buffer.at(count) == ' ') {
+			isUpper = true;
 		}
 	}
 

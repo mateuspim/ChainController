@@ -7,9 +7,6 @@
 
 #include <cstdlib>
 #include <iostream>
-
-using namespace std;
-
 #include <cstdlib>
 #include <memory>
 #include "Info.hpp"

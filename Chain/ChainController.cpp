@@ -15,7 +15,7 @@
 #include "ToOnlyUpperInitialsConcreteChainElement.hpp"
 #include "XorCriptoConcreteChainElement.hpp"
 #include "TranspoCriptoConcreteChainElement.hpp"
-#include "CharCounterConcretChainElement.hpp"
+#include "CharCounterConcreteChainElement.hpp"
 
 using namespace std;
 
@@ -92,7 +92,7 @@ void ChainController::createElements()
 		case 6: chainUnits.push_back(std::make_shared< ToReverseConcreteChainElement >()); break;
 		case 7: chainUnits.push_back(std::make_shared< XorCriptoConcreteChainElement >()); break;
 		case 8: chainUnits.push_back(std::make_shared< TranspoCriptoConcreteChainElement >()); break;
-		case 9: chainUnits.push_back(std::make_shared< CharCounterConcretChainElement >()); break;
+		case 9: chainUnits.push_back(std::make_shared< CharCounterConcreteChainElement>()); break;
 		case 10: cout << "\nClearing the chain cache" << endl; chainUnits.clear(); 
 				 cout << "Cache cleared" << endl; break;
 		default: cout << "Invalid command!" << endl; //if called problem if other cases
